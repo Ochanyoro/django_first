@@ -40,15 +40,15 @@
                   <a class="nav-link" href="{% url 'diary:inquiry' %}">INQUIRY</a>
                 </li>
                 {% if user.is_authenticated %}
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
+                  <li class="nav-item {% block active_diary_list %}{% endblock %}">
+                      <a class="nav-link" href="{% url 'diary:diary_list' %}">DIARY LIST</a>
                   </li>
                 {% endif %}
               </ul>
               <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                   <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
+                      <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
                   </li>
                 {% else %}
                   <li class="nav-item {% block active_signup %}{% endblock %}">
@@ -66,20 +66,19 @@
         {% block header%}{% endblock %}
 
         {% if messages %}
-        <div class="container">
-            <div class="row">
-                <div class="my-div-style w-100">
-                  <!--noneとすることで・なくす-->
-                    <ul class="messages" style="list-style: none;">
-                        {% for message in messages %}
-                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
-                            {{ message }}
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div>
+          <div class="container">
+              <div class="row">
+                  <div class="my-div-style w-100">
+                      <ul class="messages" style="list-style: none;">
+                          {% for message in messages %}
+                          <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                              {{ message }}
+                          </li>
+                          {% endfor %}
+                      </ul>
+                  </div>
+              </div>
+          </div>
         {% endif %}
 
         {% block contents%}{% endblock %}
