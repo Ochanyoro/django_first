@@ -5,9 +5,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .forms import InquiryForm
+from .forms import InquiryForm, DiaryCreateForm
 from .models import Diary
+
 logger = logging.getLogger(__name__)
+
 
 
 class IndexView(generic.TemplateView):

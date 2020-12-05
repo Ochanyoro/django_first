@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     #django-allauthを使えるように追加
     'django.contrib.sites',
     'allauth',
-    'allauth.account'
+    'allauth.account',
 ]
 
 MIDDLEWARE = [
@@ -133,26 +133,22 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-#画像を配信するurlのホスト名以下のルートurlに使用される
+
 MEDIA_URL = '/media/'
 
-#{{message.tagsに応じたレベルで出力される}}
-MESSAGE_TAGS={
-    messages.ERROR:'alert alert-danger',
+MESSAGE_TAGS = {
+    messages.ERROR: 'alert alert-danger',
     messages.WARNING: 'alert alert-warning',
     messages.SUCCESS: 'alert alert-success',
     messages.INFO: 'alert alert-info',
 }
 
-#djangoはデフォルトのユーザーモデルではなくカスタムユーザーモデルを参照する
-AUTH_USER_MODEL = "accounts.CustomUser"
-
+AUTH_USER_MODEL = 'accounts.CustomUser'
 
 # django-allauthで利用するdjango.contrib.sitesを使うためにサイト識別用IDを設定
 SITE_ID = 1
@@ -176,7 +172,6 @@ ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
 
 # ログアウトリンクのクリック一発でログアウトする設定
 ACCOUNT_LOGOUT_ON_GET = True
-
 
 # django-allauthが送信するメールの件名に自動付与される接頭辞をブランクにする設定
 ACCOUNT_EMAIL_SUBJECT_PREFIX = ''
