@@ -44,3 +44,7 @@ class DiaryListView(LoginRequiredMixin, generic.ListView):
         #-created_atで作成日時を降順で並び替えている
         diaries = Diary.objects.filter(user=self.request.user).order_by('-created_at')
         return diaries
+
+class DiaryDetailView(LoginRequiredMixin,generic.DetailView):
+    model = Diary
+    template_name = 'diary_detail.html'
