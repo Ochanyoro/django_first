@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import static
 from django.urls import path, include
 
-from . import setting_common,setting_dev
+from . import settings_common,settings_dev
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +26,4 @@ urlpatterns = [
 ]
 
 #サーバーサイドでメディアを配信できるようにする
-urlpatterns += static(settings_common.MEDIA_URL,document_root = setting_dev.MEDIA_ROOT)
+urlpatterns += static(settings_common.MEDIA_URL,document_root = settings_dev.MEDIA_ROOT)

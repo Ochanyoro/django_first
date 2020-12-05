@@ -1,11 +1,12 @@
 import logging
 
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views import generic
 
 from .forms import InquiryForm
-
+from .models import Diary
 logger = logging.getLogger(__name__)
 
 

@@ -7,5 +7,5 @@ app_name = 'diary'
 urlpatterns = [
     path('', views.IndexView.as_view(), name="index"),
     path('inquiry/', views.InquiryView.as_view(), name="inquiry"),
-    path('diary-list',view.DiaryListView.as_view(),name='diaey-list')
+    path('diary-list/', views.DiaryListView.as_view(), name="diary_list"),
 ]
