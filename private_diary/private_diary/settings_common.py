@@ -139,6 +139,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+#画像を配信するurlのホスト名以下のルートurlに使用される
+MEDIA_URL = '/media/'
 
 #{{message.tagsに応じたレベルで出力される}}
 MESSAGE_TAGS={
