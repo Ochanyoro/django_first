@@ -39,11 +39,16 @@
                 <li class="nav-item {% block active_inquiry %}{% endblock %}">
                   <a class="nav-link" href="{% url 'diary:inquiry' %}">INQUIRY</a>
                 </li>
+                {% if user.is_authenticated %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
+                  </li>
+                {% endif %}
               </ul>
               <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
                   <li class="nav-item">
-                      <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
+                    <a class="nav-link" href="{% url 'account_logout' %}">Log Out</a>
                   </li>
                 {% else %}
                   <li class="nav-item {% block active_signup %}{% endblock %}">
